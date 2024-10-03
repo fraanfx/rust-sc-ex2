@@ -75,13 +75,13 @@ fn calculate(op: Operation) {;
 
 // Testing
 
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
+#[cfg(test)]
+ mod tests {
+     use super::*;
 
-//     #[test]
-//     fn test_get_num() {
+     #[test]
+     fn test_get_num() {
+         assert_eq!(setOperation("+"),Operation::Add(10.0, 5.0))
+     }
 
-//     }
-
-// }
+}
