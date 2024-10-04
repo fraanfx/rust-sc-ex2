@@ -40,22 +40,15 @@ fn gotNumber () -> f64 {
     num
 }
 
-fn setOperation() -> Result<String, String>{
+fn setOperation() -> String{
     let mut input = String::new();
     println!("Enter an operator:");
     io::stdin().read_line(&mut input).unwrap();
-    let operation =  input.trim();
-
-    match operation {
-        "+" => Ok("Add".to_string()),
-        "-" => Ok("Substract".to_string()),
-        "*" => Ok( "Multiply".to_string()),
-        "/" => Ok("Divide".to_string()),
-        _ => Err("Invalid input. Please enter a valid operator.".to_string()),
-    }
+    let operation =  input.trim().to_string();
+    operation
 }
 
-fn calculate(op: Operation) {;
+fn calculate(op: Operation) -> f64 {;
     match op {
         Operation::Add(x, y) => {
             let mut result = x + y;
@@ -81,7 +74,7 @@ fn calculate(op: Operation) {;
 
      #[test]
      fn test_get_num() {
-         assert_eq!(setOperation("+"),Operation::Add(10.0, 5.0))
+         assert_eq!(setOperation("+"),"Add")
      }
 
 }
